@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    list-style: none;
+}
+/*左侧浏览部分*/
+.left {
+    width: 250px;
+    height: 800px;
+    background-color: cadetblue;
+    position: absolute;
+}
+#first {
+    color: #000000;
+    font-size: 20px;
+    font-family: "微软雅黑";
+    font-weight: 700;
+    text-align: center;
+    padding-top: 20px;
+}
+#top ul li {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+#top ul a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*表单域部分*/
+#form {
+    /*background: yellow;*/
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    margin: 50px 500px;
+    display: none;
+}
+#message {
+    margin: auto 100px;
+}
+#message input {
+    height: 20px;
+    margin-top: 16px;
+}
+#message #tt2 {
+    margin-top: 10px;
+}
+
+#message　#account {
+    color: #cccccc;
+    outline: none;
+}
+#message #btn {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    background-color: cadetblue;
+    margin-left: 80px;
+    margin-bottom: 50px;
+}
+
+/*表格部分*/
+#table {
+    /*background: purple;*/
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    margin: 50px 500px;
+    display: none;
+}
+#table tr th{
+    width: 200px;
+}
+#table tr td {
+    text-align: center;
+    cursor: pointer;
+    font-weight: 700;
+}
+#table tr td a {
+    text-decoration: none;
+    font-size: 16px;
+    color: green;
+}
+
+#myChart {
+    display: none;
+}
+#chart1 {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    margin: 50px 350px;
+}
+#chart2 {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    margin: 50px 1000px;
+}

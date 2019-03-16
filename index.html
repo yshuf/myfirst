@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/base.css">
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+<div>
+    <!--左侧界面预览-->
+    <div class="left">
+        <div id="top">
+            <div id="first">内容界面</div>
+            <ul id="uu">
+                <li><a href="#">登录信息</a></li>
+                <li><a href="#">表格信息</a></li>
+                <li><a href="#">图表展示</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--表单域部分-->
+    <div id="form">
+        <div id="message">
+            <lable>登录名：</lable><input type="text" id="account"/></br>
+            <lable>密&nbsp; &nbsp;码：</lable><input type="password" id="mm"/></br>
+            <lable>姓&nbsp; &nbsp;名：</lable><input type="text" value="" id="name"/></br>
+            <lable>性&nbsp; &nbsp;别：</lable><input type="radio" value="1" name="sex" />男
+            <input type="radio" value="2" name="sex"/>女</br>
+            <lable>你所关注的：</lable><input type="checkbox" value="1"/>体育
+            <input type="checkbox" value="2"/>娱乐
+            <input type="checkbox" value="3"/>美食</br>
+            <textarea name="tt" id="tt2" cols="30" rows="10" disabled>欢迎浏览，登录须知，祝你浏览愉快，有任何问题请联系我们</textarea></br>
+            <input type="radio"/>记住密码</br>
+            <a href="https://baike.baidu.com/item/%E6%B1%9F%E8%A5%BF%E7%90%86%E5%B7%A5%E5%A4%A7%E5%AD%A6%E5%BA%94%E7%94%A8%E7%A7%91%E5%AD%A6%E5%AD%A6%E9%99%A2/2867115?fr=aladdin"><input type="submit" value="登录" id="btn" /></a>
+        </div>
+    </div>
+
+    <!--表格部分-->
+    <div id="table">
+        <table border="2" cellpadding="0" cellspacing="0" id="tableAll">
+            <tr>
+                <th>名称</th>
+                <th>进价</th>
+                <th>售价</th>
+                <th>月销量</th>
+            </tr>
+            <tr>
+                <td><a href="https://baike.baidu.com/item/%E8%A7%A3%E5%BF%A7%E6%9D%82%E8%B4%A7%E5%BA%97/12346806?fr=aladdin">解忧杂货铺</a></td>
+                <td>23</td>
+                <td>28</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td><a href="https://baike.baidu.com/item/%E7%99%BD%E5%A4%9C%E8%A1%8C/8646?fr=aladdin">白夜行</a></td>
+                <td>32</td>
+                <td>36</td>
+                <td>250</td>
+            </tr>
+            <tr>
+                <td><a href="https://baike.baidu.com/item/%E8%BF%BD%E9%A3%8E%E7%AD%9D%E7%9A%84%E4%BA%BA/3708735?fr=aladdin">追风筝的人</a></td>
+                <td>18</td>
+                <td>25</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td><a href="https://baike.baidu.com/item/%E6%8C%AA%E5%A8%81%E7%9A%84%E6%A3%AE%E6%9E%97/261?fr=aladdin">挪威的森林</a></td>
+                <td>36</td>
+                <td>40</td>
+                <td>50</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--图表展示-->
+    <div id="myChart">
+        <div id="chart1" style="width:500px;height:500px"></div>
+        <div id="chart2" style="width:500px;height:500px"></div>
+    </div>
+</div>
+
+</body>
+<script>
+    var myChart=echarts.init(document.getElementById("chart1"));
+    var option = {
+        title : {
+            text: '未来一周气温变化',
+            subtext: '纯属虚构'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最高气温','最低气温']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['周一','周二','周三','周四','周五','周六','周日']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} °C'
+                }
+            }
+        ],
+        series : [
+            {
+                name:'最高气温',
+                type:'line',
+                data:[11, 11, 15, 13, 12, 13, 10],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name:'最低气温',
+                type:'line',
+                data:[1, -2, 2, 5, 3, 2, 0],
+                markPoint : {
+                    data : [
+                        {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+    myChart.setOption(option);
+
+    var myChart2=echarts.init(document.getElementById("chart2"));
+    var option2 = {
+        title : {
+            text: '浏览器占比变化',
+            subtext: '纯属虚构',
+            x:'right',
+            y:'bottom'
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient : 'vertical',
+            x : 'left',
+            data:['Chrome','Firefox','Safari','IE9+','IE8-']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : false,
+        series : (function (){
+            var series = [];
+            for (var i = 0; i < 30; i++) {
+                series.push({
+                    name:'浏览器（数据纯属虚构）',
+                    type:'pie',
+                    itemStyle : {normal : {
+                            label : {show : i > 28},
+                            labelLine : {show : i > 28, length:20}
+                        }},
+                    radius : [i * 4 + 40, i * 4 + 43],
+                    data:[
+                        {value: i * 128 + 80,  name:'Chrome'},
+                        {value: i * 64  + 160,  name:'Firefox'},
+                        {value: i * 32  + 320,  name:'Safari'},
+                        {value: i * 16  + 640,  name:'IE9+'},
+                        {value: i * 8  + 1280, name:'IE8-'}
+                    ]
+                })
+            }
+            series[0].markPoint = {
+                symbol:'emptyCircle',
+                symbolSize:series[0].radius[0],
+                effect:{show:true,scaleSize:12,color:'rgba(250,225,50,0.8)',shadowBlur:10,period:30},
+                data:[{x:'50%',y:'50%'}]
+            };
+            return series;
+        })()
+    };
+    setTimeout(function (){
+        var _ZR = myChart.getZrender();
+        var TextShape = require('zrender/shape/Text');
+        // 补充千层饼
+        _ZR.addShape(new TextShape({
+            style : {
+                x : _ZR.getWidth() / 2,
+                y : _ZR.getHeight() / 2,
+                color: '#666',
+                text : '恶梦的过去',
+                textAlign : 'center'
+            }
+        }));
+        _ZR.addShape(new TextShape({
+            style : {
+                x : _ZR.getWidth() / 2 + 200,
+                y : _ZR.getHeight() / 2,
+                brushType:'fill',
+                color: 'orange',
+                text : '美好的未来',
+                textAlign : 'left',
+                textFont:'normal 20px 微软雅黑'
+            }
+        }));
+        _ZR.refresh();
+    }, 2000);
+    myChart2.setOption(option2);
+</script>
+</html>
+
+
